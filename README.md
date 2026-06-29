@@ -66,7 +66,7 @@ npm run build
 
 后端为独立的 Laravel 项目，提供 RESTful API（Bearer Token 认证）。
 
-- 后端仓库：[assessmentApi](https://github.com/your-org/assessmentApi)
+- 后端仓库：[assessmentApi]([https://github.com/Nonver/assessmentApi)
 
 ## 相关文档
 
