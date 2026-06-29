@@ -1,0 +1,545 @@
+{
+  "pages": [
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#ffffff",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "绩效管理系统",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#ffffff",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/staff/staff",
+      "style": {
+        "navigationBarTitleText": "个人工作台",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8fafc",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assessment/assessment",
+      "style": {
+        "navigationBarTitleText": "我的考核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8fafc",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assessment-detail/assessment-detail",
+      "style": {
+        "navigationBarTitleText": "考核详情",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/hr-review/hr-review",
+      "style": {
+        "navigationBarTitleText": "人事审核中心",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7F8FA",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/hr-kpi/hr-kpi",
+      "style": {
+        "navigationBarTitleText": "考核总览",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f0f2f5",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/member-detail/member-detail",
+      "style": {
+        "navigationBarTitleText": "考核详情",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f0f2f5",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/finance-review/finance-review",
+      "style": {
+        "navigationBarTitleText": "考核初审",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/oversight-final/oversight-final",
+      "style": {
+        "navigationBarTitleText": "考核终审",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assess-audit/assess-audit",
+      "style": {
+        "navigationBarTitleText": "考核达标审核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assess-audit/detail",
+      "style": {
+        "navigationBarTitleText": "考核详情",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assess-audit/history",
+      "style": {
+        "navigationBarTitleText": "考核历史",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/oversight/oversight",
+      "style": {
+        "navigationBarTitleText": "全局监管",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f6f7f9",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/anchor/anchor",
+      "style": {
+        "navigationBarTitleText": "主播部",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F5F7FB",
+        "disableScroll": false,
+		"navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/hr/hr",
+      "style": {
+        "navigationBarTitleText": "人事部",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8fafc",
+        "disableScroll": false,
+		"navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/hr-accounts/hr-accounts",
+      "style": {
+        "navigationBarTitleText": "全员账号审核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f1f5f9",
+        "disableScroll": false,
+		"navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/hr-assess-status/hr-assess-status",
+      "style": {
+        "navigationBarTitleText": "考核状态",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8fafc",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/operation/operation",
+      "style": {
+        "navigationBarTitleText": "运营部",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8fafc",
+        "disableScroll": false,
+		"navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/transfer/transfer",
+      "style": {
+        "navigationBarTitleText": "中转部",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#ffffff",
+        "disableScroll": false,
+		"navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/transfer-assessment/transfer-assessment",
+      "style": {
+        "navigationBarTitleText": "考核发布",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F9FC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/transfer-staff/transfer-staff",
+      "style": {
+        "navigationBarTitleText": "中转部工作台",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F4F6F9",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/operation-assessment/operation-assessment",
+      "style": {
+        "navigationBarTitleText": "考核发布",
+        "navigationBarBackgroundColor": "#F6F7F9",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F6F7F9",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/anchor-kpi/anchor-kpi",
+      "style": {
+        "navigationBarTitleText": "考核总览",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F9FC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/anchor-assessment/anchor-assessment",
+      "style": {
+        "navigationBarTitleText": "考核发布",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F9FC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/anchor-pending/anchor-pending",
+      "style": {
+        "navigationBarTitleText": "待提交考核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F9FC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/anchor-assess-submit/anchor-assess-submit",
+      "style": {
+        "navigationBarTitleText": "主播考核提交",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/operation-staff/operation-staff",
+      "style": {
+        "navigationBarTitleText": "运营部工作台",
+        "navigationBarBackgroundColor": "#020617",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#020617",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/broker-assessment/broker-assessment",
+      "style": {
+        "navigationBarTitleText": "考核发布",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F5F5F7",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/broker-assessment-list/broker-assessment-list",
+      "style": {
+        "navigationBarTitleText": "我的考核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8fafc",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/broker-staff/broker-staff",
+      "style": {
+        "navigationBarTitleText": "经纪部工作台",
+        "navigationBarBackgroundColor": "#16A34A",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/parttime-anchor/parttime-anchor",
+      "style": {
+        "navigationBarTitleText": "兼职主播管理",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#ffffff",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/parttime-status/parttime-status",
+      "style": {
+        "navigationBarTitleText": "入职状态管理",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#ffffff",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/parttime-detail/parttime-detail",
+      "style": {
+        "navigationBarTitleText": "主播详情",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/transfer-flow/transfer-flow",
+      "style": {
+        "navigationBarTitleText": "主播流转审核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f5f5f7",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/userInfo/userInfo",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "navigationBarBackgroundColor": "#16A34A",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/daily-flow/daily-flow",
+      "style": {
+        "navigationBarTitleText": "每日流水提交",
+        "navigationBarBackgroundColor": "#f1f5f9",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f1f5f9",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/flow-review/flow-review",
+      "style": {
+        "navigationBarTitleText": "运营流水审核",
+        "navigationBarBackgroundColor": "#fafafa",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#fafafa",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/flow-ledger/flow-ledger",
+      "style": {
+        "navigationBarTitleText": "流水管理台账",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F9FA",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+		{
+			"path": "pages/flow-list/flow-list",
+			"style": {
+				"navigationBarTitleText": "全部流水明细",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black",
+				"backgroundColor": "#F8F9FA",
+				"disableScroll": false,
+				"navigationStyle": "custom"
+			}
+		},
+    {
+      "path": "pages/flow-detail/flow-detail",
+      "style": {
+        "navigationBarTitleText": "流水详情",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F9FA",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dismiss-ledger/dismiss-ledger",
+      "style": {
+        "navigationBarTitleText": "劝退记录",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7F8FA",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assess-publish/assess-publish",
+      "style": {
+        "navigationBarTitleText": "考核发布",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assess-manage/assess-manage",
+      "style": {
+        "navigationBarTitleText": "考核管理",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F1F5F9",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/assess-manage/assess-manage-edit",
+      "style": {
+        "navigationBarTitleText": "编辑考核",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/personnel-manage/personnel-manage",
+      "style": {
+        "navigationBarTitleText": "人员管理",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7F8FA",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/submit-progress/submit-progress",
+      "style": {
+        "navigationBarTitleText": "提交进度",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8FAFC",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f1f5f9",
+        "disableScroll": false,
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+
+  "globalStyle": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "@/components/u-$1/u-$1.vue"
+    }
+  }
+}

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>绩效考核管理系统 - 项目文档</title>
+<style>
+  :root {
+    --primary: #6366f1;
+    --primary-light: #eef2ff;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --bg: #f8fafc;
+    --card: #fff;
+    --border: #e2e8f0;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff; padding: 80px 0 64px; text-align: center;
+  }
+  .hero h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px }
+  .hero .sub { font-size: 18px; opacity: 0.85; font-weight: 400 }
+  .hero .badges { margin-top: 24px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap }
+  .hero .badge {
+    background: rgba(255,255,255,.18); backdrop-filter: blur(8px);
+    padding: 6px 18px; border-radius: 9999px; font-size: 14px; font-weight: 500;
+  }
+
+  /* ── Container ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 48px 24px }
+
+  /* ── Section ── */
+  .section { margin-bottom: 48px }
+  .section-title {
+    font-size: 26px; font-weight: 700; color: var(--text);
+    margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--primary-light);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .icon { font-size: 28px }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card); border-radius: var(--radius);
+    padding: 28px 32px; margin-bottom: 20px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+
+  /* ── Grid ── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px }
+  .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px }
+  .grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px }
+
+  /* ── Stat ── */
+  .stat { text-align: center; padding: 24px 16px }
+  .stat .num { font-size: 36px; font-weight: 800; color: var(--primary) }
+  .stat .label { font-size: 14px; color: var(--text-secondary); margin-top: 4px }
+
+  /* ── Tech tag ── */
+  .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px }
+  .tech-tag {
+    background: var(--primary-light); color: var(--primary);
+    padding: 6px 16px; border-radius: 9999px; font-size: 14px; font-weight: 600;
+  }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; margin-top: 12px }
+  th {
+    text-align: left; font-size: 13px; font-weight: 600; color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 14px;
+    border-bottom: 1px solid var(--border); background: var(--bg);
+  }
+  td { padding: 12px 14px; font-size: 14px; border-bottom: 1px solid var(--border) }
+  tr:last-child td { border-bottom: none }
+
+  /* ── Flow ── */
+  .flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center }
+  .flow-step {
+    background: var(--primary-light); color: var(--primary); padding: 12px 20px;
+    border-radius: 8px; font-size: 14px; font-weight: 600; white-space: nowrap;
+  }
+  .flow-step.pass { background: #ecfdf5; color: #059669 }
+  .flow-step.reject { background: #fff1f2; color: #e11d48 }
+  .flow-arrow { font-size: 20px; color: #cbd5e1; margin: 0 8px; font-weight: 700 }
+
+  /* ── Feature list ── */
+  .feat-list { list-style: none; padding: 0 }
+  .feat-list li { padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start; gap: 8px }
+  .feat-list li::before { content:'✅'; flex-shrink: 0 }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .grid2, .grid3 { grid-template-columns: 1fr }
+    .grid4 { grid-template-columns: 1fr 1fr }
+    .hero h1 { font-size: 28px }
+    .flow { flex-direction: column; gap: 8px }
+    .flow-arrow { transform: rotate(90deg) }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff }
+    .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid }
+    .hero { padding: 40px 0; background: #6366f1 !important; -webkit-print-color-adjust: exact }
+  }
+
+  /* ── 架构图 ── */
+  .arch { display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; padding: 20px 0 }
+  .arch-box {
+    background: var(--card); border: 2px solid var(--border); border-radius: var(--radius);
+    padding: 24px 20px; text-align: center; min-width: 140px;
+  }
+  .arch-box h4 { font-size: 16px; color: var(--primary); margin-bottom: 8px }
+  .arch-box p { font-size: 13px; color: var(--text-secondary); line-height: 1.5 }
+  .arch-line { font-size: 24px; color: #cbd5e1; font-weight: 700 }
+
+  .module-card { border-left: 3px solid var(--primary); padding-left: 16px }
+  .highlight { background: linear-gradient(120deg, #fef3c7 0%, #fef3c7 100%); padding: 2px 6px; border-radius: 3px; font-weight: 600 }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <h1> 绩效考核管理系统</h1>
+  <p class="sub">企业级多部门绩效考核与审核管理平台</p>
+  <div class="badges">
+    <span class="badge">Vue 3 前端</span>
+    <span class="badge">Laravel API</span>
+    <span class="badge">MySQL 数据库</span>
+    <span class="badge">多部门架构</span>
+    <span class="badge">RBAC 权限</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════════ 项目概述 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 项目概述</div>
+    <div class="card">
+      <p style="margin-bottom:16px">
+        <strong> 绩效考核管理系统</strong>是一套面向企业内部多部门的绩效考核管理平台，覆盖
+        <span class="highlight">人事部、经纪部、中转部、运营部、主播部、财务部、总经办</span>共 <strong>7 个部门</strong>，
+        支持部门总监、组长、员工 <strong>3 级角色</strong>的权限管控与工作流协作。
+      </p>
+      <p>
+        该系统采用<span class="highlight">前后端分离架构</span>，前端基于 uni-app (Vue 3) 构建 H5 应用，
+        后端基于 Laravel 提供 RESTful API，支持考核发布、任务提交、三级审核流程、图片凭证上传、数据统计仪表盘等完整业务闭环。
+        独立完成全栈开发，从需求分析到上线部署全过程独立交付。
+      </p>
+    </div>
+
+    <!-- 数据概览 -->
+    <div class="grid4">
+      <div class="card stat">
+        <div class="num">7</div>
+        <div class="label">业务部门</div>
+      </div>
+      <div class="card stat">
+        <div class="num">96+</div>
+        <div class="label">API 接口</div>
+      </div>
+      <div class="card stat">
+        <div class="num">48</div>
+        <div class="label">前端页面</div>
+      </div>
+      <div class="card stat">
+        <div class="num">12+</div>
+        <div class="label">数据表</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 技术栈 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🛠️</span> 技术栈</div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 style="font-size:18px; margin-bottom:16px; color: var(--primary)">🎨 前端 (H5)</h3>
+        <table>
+          <tr><td style="font-weight:600">框架</td><td>uni-app + Vue 3.5 (Composition API)</td></tr>
+          <tr><td style="font-weight:600">状态管理</td><td>Pinia 2.x + Vuex 4.x</td></tr>
+          <tr><td style="font-weight:600">构建工具</td><td>Vite 5</td></tr>
+          <tr><td style="font-weight:600">样式方案</td><td>Sass + 自定义设计系统 (50+ 组件)</td></tr>
+          <tr><td style="font-weight:600">文档导出</td><td>docx 库 (Word 生成)</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px; margin-bottom:16px; color: var(--primary)">🖥️ 后端 (API)</h3>
+        <table>
+          <tr><td style="font-weight:600">框架</td><td>Laravel 13.8</td></tr>
+          <tr><td style="font-weight:600">运行环境</td><td>PHP 8.3+ / IIS</td></tr>
+          <tr><td style="font-weight:600">数据库</td><td>MySQL 5.5+ (原生 SQL)</td></tr>
+          <tr><td style="font-weight:600">认证</td><td>Token Bearer 自建认证</td></tr>
+          <tr><td style="font-weight:600">文件存储</td><td>本地磁盘 + 图片压缩</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 系统架构 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏗️</span> 系统架构</div>
+
+    <div class="arch">
+      <div class="arch-box"><h4>H5 前端</h4><p>uni-app / Vue 3<br>Vite 构建</p></div>
+      <div class="arch-line">⟷ HTTP ⟷</div>
+      <div class="arch-box"><h4>Laravel API</h4><p>RESTful 接口<br>8 个控制器</p></div>
+      <div class="arch-line">⟷ SQL ⟷</div>
+      <div class="arch-box"><h4>MySQL</h4><p>12+ 业务表<br>原生查询</p></div>
+    </div>
+
+    <!-- 数据库表 -->
+    <div class="card">
+      <h3 style="font-size:16px; margin-bottom:16px; color: var(--primary)">数据库核心表</h3>
+      <div class="grid3">
+        <div class="module-card">
+          <strong>用户体系</strong>
+          <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">sys_user · sys_dept · tokens</p>
+        </div>
+        <div class="module-card">
+          <strong>考核发布</strong>
+          <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">dept_assess_publish</p>
+        </div>
+        <div class="module-card">
+          <strong>部门指标</strong>
+          <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">assess_broker · assess_hr · assess_anchor<br>assess_transfer · assess_operation</p>
+        </div>
+        <div class="module-card">
+          <strong>考核结果</strong>
+          <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">user_assess_result</p>
+        </div>
+        <div class="module-card">
+          <strong>凭证管理</strong>
+          <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">assess_images · assess_resource</p>
+        </div>
+        <div class="module-card">
+          <strong>运营流水</strong>
+          <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">daily_flow · flow_type</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 核心功能 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚙️</span> 核心功能模块</div>
+
+    <div class="grid2">
+
+      <!-- 1. 考核发布 -->
+      <div class="card">
+        <h3 style="font-size:17px; margin-bottom:12px; color: var(--primary)">📝 考核发布管理</h3>
+        <ul class="feat-list">
+          <li>HR 人事部统一发布各周期考核任务</li>
+          <li>按部门设定差异化考核指标（经纪部：招募量；主播部：直播天数/时长/流水；运营部：流水目标等）</li>
+          <li>支持考核周期管理、目标备注、规则说明</li>
+          <li>考核生命周期：<span class="highlight">待提交 → 进行中 → 到期完结</span></li>
+        </ul>
+      </div>
+
+      <!-- 2. 考核提交 -->
+      <div class="card">
+        <h3 style="font-size:17px; margin-bottom:12px; color: var(--primary)">📤 员工考核提交</h3>
+        <ul class="feat-list">
+          <li>各部门专属提交表单（主播部：直播数据；经纪部：招募数量等）</li>
+          <li>支持图片凭证上传（压缩、预览、进度提示）</li>
+          <li>已上传未提交的图片自动回显，防止重复上传</li>
+          <li>资源明细录入（平台、联系方式等结构化数据）</li>
+          <li>提交后进入审核流程，状态实时同步</li>
+        </ul>
+      </div>
+
+      <!-- 3. 审核流程 -->
+      <div class="card">
+        <h3 style="font-size:17px; margin-bottom:12px; color: var(--primary)">🔍 三级审核机制</h3>
+        <ul class="feat-list">
+          <li>员工提交 → <strong>财务部初审</strong></li>
+          <li>财务初审通过 → <strong>总经办终审</strong></li>
+          <li>审核结果：达标 / 不达标，附审核意见</li>
+          <li>人事部可全流程监控各周期考核状态</li>
+        </ul>
+      </div>
+
+      <!-- 4. 数据统计 -->
+      <div class="card">
+        <h3 style="font-size:17px; margin-bottom:12px; color: var(--primary)">📊 仪表盘与统计</h3>
+        <ul class="feat-list">
+          <li>各部门总监端仪表盘：待提交清单、进度概览</li>
+          <li>人事考核总览：按周期/部门查看完成率、达标率</li>
+          <li>KPI 指环图可视化展示达标、未达标、待审核比例</li>
+          <li>历史考核记录查询与回溯</li>
+        </ul>
+      </div>
+
+      <!-- 5. RBAC 权限 -->
+      <div class="card">
+        <h3 style="font-size:17px; margin-bottom:12px; color: var(--primary)">🔐 RBAC 权限控制</h3>
+        <ul class="feat-list">
+          <li>3 级角色：总监 / 组长 / 员工，各有独立路由映射</li>
+          <li>登录时根据 dept+role 自动路由到对应工作台</li>
+          <li>仅审核部门（财务、总经办）无自主考核权</li>
+          <li>API 中间件 Token 拦截，所有请求携带 Bearer 鉴权</li>
+        </ul>
+      </div>
+
+      <!-- 6. 其他功能 -->
+      <div class="card">
+        <h3 style="font-size:17px; margin-bottom:12px; color: var(--primary)">🔧 扩展功能</h3>
+        <ul class="feat-list">
+          <li>人事部：人员账号 CRUD、劝退记录台账</li>
+          <li>中转部：主播流转管理、入职转正流程</li>
+          <li>运营部：每日流水提交、流水审核、台账管理</li>
+          <li>兼职主播管理模块</li>
+          <li>考核文档 Word 导出</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════ 业务部门 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏢</span> 组织架构与部门职责</div>
+
+    <table>
+      <thead>
+        <tr><th>部门</th><th>ID</th><th>职责定位</th><th>主要功能</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>人事部</strong></td><td>3</td><td>系统管理中枢</td>
+          <td>人员账号管理、考核任务发布、全员状态监控、劝退管理</td>
+        </tr>
+        <tr>
+          <td><strong>经纪部</strong></td><td>4</td><td>主播招募考核</td>
+          <td>考核发布、员工提交招募量、资源录入统计</td>
+        </tr>
+        <tr>
+          <td><strong>中转部</strong></td><td>5</td><td>主播流转管理</td>
+          <td>主播流转审核、考核发布、转正入职管理</td>
+        </tr>
+        <tr>
+          <td><strong>运营部</strong></td><td>6</td><td>流水考核管理</td>
+          <td>每日流水提交/审核、考核发布、流水台账</td>
+        </tr>
+        <tr>
+          <td><strong>主播部</strong></td><td>7</td><td>直播数据考核</td>
+          <td>直播天数/时长/流水/大哥数提交、图片分类上传</td>
+        </tr>
+        <tr>
+          <td><strong>财务部</strong></td><td>2</td><td>考核初审</td>
+          <td>审核员工提交的考核材料</td>
+        </tr>
+        <tr>
+          <td><strong>总经办</strong></td><td>1</td><td>考核终审</td>
+          <td>最终审核决策（达标/不达标）、全局监管</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════ 审核工作流 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔄</span> 考核审核工作流</div>
+    <div class="card">
+      <div class="flow" style="padding:12px 0">
+        <div class="flow-step">HR 发布考核</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">员工提交材料</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">财务部初审</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">总经办终审</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step pass">✓ 达标</div>
+      </div>
+      <div style="text-align:center; margin-top:10px; font-size:13px; color:var(--text-secondary)">
+        考核周期结束后状态自动变为"已完结"，审核全部通过前显示"进行中"
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ API 接口 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔌</span> API 接口设计 (96+)</div>
+
+    <div class="grid3">
+      <div class="card module-card">
+        <strong>认证模块</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">POST login<br>GET user/info<br>POST logout</p>
+      </div>
+      <div class="card module-card">
+        <strong>考核管理</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">GET assessments<br>GET/POST assessment-detail<br>POST save-progress<br>POST submit-daily<br>POST upload-assess-image</p>
+      </div>
+      <div class="card module-card">
+        <strong>审核流程</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">GET finance-review<br>GET oversight/final<br>POST approve / reject</p>
+      </div>
+      <div class="card module-card">
+        <strong>人事管理</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">CRUD accounts<br>CRUD assessments<br>GET kpi/status<br>POST dismiss</p>
+      </div>
+      <div class="card module-card">
+        <strong>数据统计</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">GET stats/*<br>GET dashboard<br>POST export</p>
+      </div>
+      <div class="card module-card">
+        <strong>部门专属</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">broker/dashboard<br>flow/submit / review<br>anchor/submit<br>transfer/flow</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 技术亮点 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">✨</span> 技术亮点</div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px; color: var(--primary)">前后端分离架构</h3>
+        <p style="font-size:14px; color: var(--text-secondary)">
+          uni-app H5 前端 + Laravel RESTful API，通过 Vite 代理开发、独立构建部署。Token 鉴权机制，支持跨域请求与状态持久化。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px; color: var(--primary)">RBAC 多角色路由</h3>
+        <p style="font-size:14px; color: var(--text-secondary)">
+          基于部门 ID + 角色值的二维路由映射表，登录后自动分发到对应工作台。
+          7 部门 × 3 角色的精细化权限管控。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px; color: var(--primary)">图片凭证防重复上传</h3>
+        <p style="font-size:14px; color: var(--text-secondary)">
+          图片先上传入库（assess_images），提交时才关联考核记录。离开页面不丢失，
+          下次进入自动回显已上传图片，避免重复提交冗余凭证。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px; color: var(--primary)">自定义设计系统</h3>
+        <p style="font-size:14px; color: var(--text-secondary)">
+          纯手写 CSS 组件库，包括卡片、进度条、状态标签、表单、Toast、骨架屏等 50+
+          可复用组件，统一的色彩体系和间距规范，无第三方 UI 库依赖。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px; color: var(--primary)">差异化部门指标</h3>
+        <p style="font-size:14px; color: var(--text-secondary)">
+          每个部门的考核指标表独立设计，通过 dept_id 驱动差异化表单渲染和数据持久化。
+          主播部支持多维指标（天数/时长/流水/大哥数），经纪部支持招募量等。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px; color: var(--primary)">数据库幂等迁移</h3>
+        <p style="font-size:14px; color: var(--text-secondary)">
+          使用 information_schema 检测字段是否存在后再 ALTER TABLE，所有迁移脚本可重复执行不报错，
+          兼容 MySQL 5.5 低版本环境。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 项目规模 ═══════════════ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📦</span> 项目规模</div>
+    <div class="grid3">
+      <div class="card stat">
+        <div class="num">48</div>
+        <div class="label">Vue 页面</div>
+      </div>
+      <div class="card stat">
+        <div class="num">96+</div>
+        <div class="label">API 接口</div>
+      </div>
+      <div class="card stat">
+        <div class="num">8</div>
+        <div class="label">后端控制器</div>
+      </div>
+      <div class="card stat">
+        <div class="num">12+</div>
+        <div class="label">数据库表</div>
+      </div>
+      <div class="card stat">
+        <div class="num">7</div>
+        <div class="label">业务部门</div>
+      </div>
+      <div class="card stat">
+        <div class="num">3</div>
+        <div class="label">角色层级</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 结尾 ═══════════════ -->
+  <div class="section" style="text-align:center; padding: 40px 0">
+    <p style="color: var(--text-secondary); font-size: 15px">
+       绩效考核管理系统 v1.0 · 独立全栈开发
+    </p>
+    <div class="tech-stack" style="justify-content: center; margin-top: 16px">
+      <span class="tech-tag">Vue 3</span>
+      <span class="tech-tag">uni-app</span>
+      <span class="tech-tag">Laravel</span>
+      <span class="tech-tag">PHP</span>
+      <span class="tech-tag">MySQL</span>
+      <span class="tech-tag">RESTful API</span>
+      <span class="tech-tag">RBAC</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
